@@ -1,0 +1,7 @@
+<input [(ngModel)]="item" placeholder="Enter item" />
+<button (click)="addItem()">Add</button>
+<ul>
+  <li *ngFor="let i of items">
+    {{ i.name }} <button (click)="deleteItem(i.id)">X</button>
+  </li>
+</ul>
