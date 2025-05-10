@@ -1,7 +1,12 @@
-<input [(ngModel)]="item" placeholder="Enter item" />
-<button (click)="addItem()">Add</button>
+<form [formGroup]="formsInfo">
+  <label for="Name">Name</label>
+  <input formControlName="name" placeholder="Enter item" />
+  <label for="subName">SubName</label>
+  <input formControlName="option" placeholder="Enter item" />
+
+  <button (click)="addItem()">Add</button>
+</form>
+
 <ul>
-  <li *ngFor="let i of items">
-    {{ i.name }} <button (click)="deleteItem(i.id)">X</button>
-  </li>
+  <li *ngFor="let i of items">{{ i.name }}</li>
 </ul>
