@@ -21,30 +21,36 @@ import { firstValueFrom } from 'rxjs';
   styleUrl: './app.component.scss',
 })
 export class AppComponent implements OnInit {
+  user: any;
   constructor(
     private firebaseService: FirebaseService,
     private ipService: IpService
   ) {}
 
   async ngOnInit() {
+    this.user = await firstValueFrom(this.ipService.getUserIP());
     const data = await firstValueFrom(this.firebaseService.getData());
+
     for (const item of data) {
-      const user: any = await firstValueFrom(this.ipService.getUserIP());
-      if (item.ip === user.ip) {
+      if (item.ip === this.user.ip) {
         this.isVoted = true;
         break;
       }
     }
+    console.log('data: ', this.user?.ip);
   }
 
-  addItem(option: any) {
-    this.ipService.getUserIP().subscribe((data: any) => {
+  async addItem(option: any) {
+    if (!this.user) {
+      this.user = await firstValueFrom(this.ipService.getUserIP());
+    }
+    if (!this.isVoted) {
       this.firebaseService.addData({
-        ip: data.ip, //ip address
+        ip: this.user?.ip, //ip address
         option: option,
       });
       this.isVoted = true;
-    });
+    }
   }
 
   items = [

@@ -23,7 +23,6 @@ export class VoteCardComponent {
   onVotePerfomance() {
     if (!this.isVoted) {
       this.onVote.emit(this.item.option);
-      console.log('data1: ', this.item.option);
     }
   }
 }
