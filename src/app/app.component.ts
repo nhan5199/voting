@@ -1,65 +1,110 @@
+import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterOutlet } from '@angular/router';
 import { FirebaseService } from './shared/services/firebase.service';
-import {
-  FormArray,
-  FormBuilder,
-  FormGroup,
-  FormsModule,
-  ReactiveFormsModule,
-  Validators,
-} from '@angular/forms';
-import { CommonModule } from '@angular/common';
+import { IpService } from './shared/services/ip.service';
+import { VoteCardComponent } from './vote-card/vote-card.component';
+import { firstValueFrom } from 'rxjs';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, FormsModule, CommonModule, ReactiveFormsModule],
+  imports: [
+    RouterOutlet,
+    FormsModule,
+    CommonModule,
+    ReactiveFormsModule,
+    VoteCardComponent,
+  ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
 export class AppComponent implements OnInit {
-  item: any;
-  items: any[] = [];
-  intervalId: any;
-
-  formsInfo: FormGroup<any>;
-
   constructor(
     private firebaseService: FirebaseService,
-    private formBuilder: FormBuilder
-  ) {
-    this.formsInfo = this.formBuilder.group({
-      name: ['', Validators.required],
-      option: [0, Validators.required],
+    private ipService: IpService
+  ) {}
+
+  async ngOnInit() {
+    const data = await firstValueFrom(this.firebaseService.getData());
+    for (const item of data) {
+      const user: any = await firstValueFrom(this.ipService.getUserIP());
+      if (item.ip === user.ip) {
+        this.isVoted = true;
+        break;
+      }
+    }
+  }
+
+  addItem(option: any) {
+    this.ipService.getUserIP().subscribe((data: any) => {
+      this.firebaseService.addData({
+        ip: data.ip, //ip address
+        option: option,
+      });
+      this.isVoted = true;
     });
   }
 
-  ngOnInit() {
-    this.intervalId = setInterval(() => {
-      this.firebaseService.getData().subscribe((data) => (this.items = data));
-    }, 60000);
+  items = [
+    {
+      name: 'NORTH',
+      detail: '',
+      option: 1,
+    },
+    {
+      name: 'CENTRAL',
+      detail: 'HÁT & MÚA',
+      option: 2,
+    },
+    {
+      name: 'CENTRAL',
+      detail: 'BAND ANH TRAI CENTRAL SAY HI',
+      option: 3,
+    },
+
+    {
+      name: 'HCMG',
+      detail: 'LIÊN KHÚC',
+      option: 4,
+    },
+
+    {
+      name: 'SOUTH',
+      detail: 'LIÊN KHÚC',
+      option: 5,
+    },
+  ];
+  currentIndex = 0;
+  startX = 0;
+  transition = 'transform 0.5s ease';
+  isVoted: boolean = false;
+
+  onTouchStart(event: TouchEvent) {
+    this.startX = event.touches[0].clientX;
+    this.transition = ''; // disable transition while swiping
   }
 
-  ngOnDestroy(): void {
-    // Clear the interval when the component is destroyed to prevent memory leaks
-    if (this.intervalId) {
-      clearInterval(this.intervalId);
+  onTouchEnd(event: TouchEvent) {
+    const endX = event.changedTouches[0].clientX;
+    const diffX = this.startX - endX;
+
+    if (diffX > 50 && this.currentIndex < this.items.length - 1) {
+      this.currentIndex++;
+    } else if (diffX < -50 && this.currentIndex > 0) {
+      this.currentIndex--;
     }
+
+    this.transition = 'transform 0.5s ease';
   }
 
-  addItem() {
-    if (this.formsInfo.valid) {
-      this.firebaseService
-        .addData({
-          name: this.formsInfo.value?.name,
-          option: this.formsInfo.value?.option,
-        })
-        .then(() => console.log('data: ', this.formsInfo.value));
-    }
+  getTransform() {
+    const offset = this.currentIndex * (90 + 10); // 90vw width + 10px margin
+    return `translateX(-${offset}vw)`;
   }
 
-  // deleteItem(id: string) {
-  //   this.firebaseService.deleteData(id);
-  // }
+  onVote(option: number) {
+    this.addItem(option);
+  }
 }

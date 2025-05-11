@@ -1,0 +1,13 @@
+<div
+  class="card"
+  [ngClass]="isVoted ? 'disabled' : ''"
+  (click)="onVotePerfomance()"
+>
+  <img src="/images/logo-bat.png" alt="" class="logo" />
+  <img src="/images/khien-bat.png" alt="" class="shield" />
+  <div class="name">
+    <h5 class="title">{{ item.name }}</h5>
+    <p>{{ item.detail }}</p>
+  </div>
+  <div class="vote-btn" (click)="onVotePerfomance()">Bình chọn ngay</div>
+</div>
