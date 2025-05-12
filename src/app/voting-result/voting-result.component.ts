@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FirebaseService } from '../shared/services/firebase.service';
 import { firstValueFrom } from 'rxjs';
 
@@ -9,12 +9,15 @@ import { firstValueFrom } from 'rxjs';
   templateUrl: './voting-result.component.html',
   styleUrl: './voting-result.component.scss',
 })
-export class VotingResultComponent implements OnInit {
+export class VotingResultComponent implements OnInit, OnDestroy {
   items: any[] = [];
   constructor(private firebaseService: FirebaseService) {}
 
+  intervalId: any;
   async ngOnInit() {
-    const data = await firstValueFrom(this.firebaseService.getData());
+    this.intervalId = setInterval(() => {
+      this.getData();
+    }, 60000); // 1 minute
     // const data = [
     //   {
     //     ip: '203.205.26.20',
@@ -97,6 +100,10 @@ export class VotingResultComponent implements OnInit {
     //     id: 'azPxWWYLMDywA7YyfRvr',
     //   },
     // ];
+  }
+
+  async getData() {
+    const data = await firstValueFrom(this.firebaseService.getData());
     this.items = this.aggregateVotes(data);
   }
 
@@ -117,5 +124,9 @@ export class VotingResultComponent implements OnInit {
       if (b.count !== a.count) return b.count - a.count;
       return a.name.localeCompare(b.name);
     });
+  }
+
+  ngOnDestroy(): void {
+    clearInterval(this.intervalId);
   }
 }
