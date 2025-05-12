@@ -1,19 +1,18 @@
-<!-- <form [formGroup]="formsInfo">
-  <label for="subName">SubName</label>
-  <input formControlName="option" placeholder="Enter item" />
-
-  <button (click)="addItem()">Add</button>
-</form>
-
-<ul>
-  <li *ngFor="let i of items">{{ i.ip }}</li>
-</ul> -->
 <div class="container">
-  <div class="title">
-    Bình chọn <br />
-    tiết mục nội bộ
+  <div class="header">
+    <div class="left">
+      HỘI TỤ <br />
+      <span class="left-text">ANH TÀI</span>
+    </div>
+
+    <img src="/images/khien-bat.png" alt="" class="header-logo" />
+
+    <div class="right">
+      VƯỢT NGÀN <br />
+      <span class="right-text">CHÔNG GAI</span>
+    </div>
   </div>
-  <div class="carousel-container hide-scrollbar">
+  <div class="carousel-container hide-scrollbar" *ngIf="!isVoted && !isLoaded">
     <div class="carousel-wrapper">
       <div class="carousel-item" *ngFor="let item of items">
         <app-vote-card
@@ -24,4 +23,12 @@
       </div>
     </div>
   </div>
+
+  <div class="voted" *ngIf="isVoted">
+    <app-voted-card [item]="votedItem" />
+  </div>
+</div>
+
+<div class="open-mobile">
+  <p>Xin vui lòng mở trên điện thoại</p>
 </div>

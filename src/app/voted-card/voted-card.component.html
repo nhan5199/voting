@@ -6,14 +6,11 @@
   </p>
   <img src="/images/khien-bat.png" alt="" class="shield" />
   <div class="name">
-    <h5 class="title">{{ item.name }}</h5>
-    <p>{{ item.detail }}</p>
+    <h5 class="title">BẠN ĐÃ BÌNH CHỌN CHO {{ item.name }}</h5>
   </div>
-  <div
-    class="vote-btn"
-    [ngClass]="isVoted ? 'disabled' : ''"
-    (click)="onVotePerfomance()"
-  >
-    Bình chọn ngay
+
+  <div class="name-button">
+    <p class="type">{{ item.detail }}</p>
+    <p class="performance">{{ item.performance }}</p>
   </div>
 </div>

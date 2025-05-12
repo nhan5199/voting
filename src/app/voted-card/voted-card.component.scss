@@ -46,9 +46,22 @@ img.shield {
   text-align: center;
   h5 {
     font-size: 20px;
+    margin-top: 0;
   }
+}
 
+.name-button {
+  width: 100%;
+  padding: 5px;
+  background-color: white;
+  border-radius: 15px;
+  margin-top: 60px;
   p {
-    font-size: 18px;
+    margin: 0;
+    color: #00017b;
+    font-weight: bold;
+    font-size: 14px;
+    text-align: center;
+    text-transform: uppercase;
   }
 }
