@@ -14,89 +14,89 @@ export class VotingResultComponent implements OnInit {
   constructor(private firebaseService: FirebaseService) {}
 
   async ngOnInit() {
-    // const data = await firstValueFrom(this.firebaseService.getData());
-    const data = [
-      {
-        ip: '203.205.26.20',
-        option: 3,
-        detail: 'BAND ANH TRAI CENTRAL SAY HI',
-        name: 'CENTRAL',
-        id: 'azPxWWYLMDywA7YyfRvr',
-      },
+    const data = await firstValueFrom(this.firebaseService.getData());
+    // const data = [
+    //   {
+    //     ip: '203.205.26.20',
+    //     option: 3,
+    //     detail: 'BAND ANH TRAI CENTRAL SAY HI',
+    //     name: 'CENTRAL',
+    //     id: 'azPxWWYLMDywA7YyfRvr',
+    //   },
 
-      {
-        ip: '203.205.26.20',
-        option: 3,
-        detail: 'BAND ANH TRAI CENTRAL SAY HI',
-        name: 'CENTRAL',
-        id: 'azPxWWYLMDywA7YyfRvr',
-      },
+    //   {
+    //     ip: '203.205.26.20',
+    //     option: 3,
+    //     detail: 'BAND ANH TRAI CENTRAL SAY HI',
+    //     name: 'CENTRAL',
+    //     id: 'azPxWWYLMDywA7YyfRvr',
+    //   },
 
-      {
-        ip: '203.205.26.20',
-        option: 3,
-        detail: 'BAND ANH TRAI CENTRAL SAY HI',
-        name: 'CENTRAL',
-        id: 'azPxWWYLMDywA7YyfRvr',
-      },
+    //   {
+    //     ip: '203.205.26.20',
+    //     option: 3,
+    //     detail: 'BAND ANH TRAI CENTRAL SAY HI',
+    //     name: 'CENTRAL',
+    //     id: 'azPxWWYLMDywA7YyfRvr',
+    //   },
 
-      {
-        ip: '203.205.26.20',
-        option: 3,
-        detail: 'BAND ANH TRAI CENTRAL SAY HI',
-        name: 'CENTRAL',
-        id: 'azPxWWYLMDywA7YyfRvr',
-      },
-      {
-        ip: '203.205.26.20',
-        option: 1,
-        detail: 'BAND ANH TRAI CENTRAL SAY HI',
-        name: 'CENTRAL',
-        id: 'azPxWWYLMDywA7YyfRvr',
-      },
-      {
-        ip: '203.205.26.20',
-        option: 1,
-        detail: 'BAND ANH TRAI CENTRAL SAY HI',
-        name: 'CENTRAL',
-        id: 'azPxWWYLMDywA7YyfRvr',
-      },
-      {
-        ip: '203.205.26.20',
-        option: 1,
-        detail: 'BAND ANH TRAI CENTRAL SAY HI',
-        name: 'CENTRAL',
-        id: 'azPxWWYLMDywA7YyfRvr',
-      },
-      {
-        ip: '203.205.26.20',
-        option: 2,
-        detail: 'BAND ANH TRAI CENTRAL SAY HI',
-        name: 'CENTRAL',
-        id: 'azPxWWYLMDywA7YyfRvr',
-      },
-      {
-        ip: '203.205.26.20',
-        option: 2,
-        detail: 'BAND ANH TRAI CENTRAL SAY HI',
-        name: 'CENTRAL',
-        id: 'azPxWWYLMDywA7YyfRvr',
-      },
-      {
-        ip: '203.205.26.20',
-        option: 4,
-        detail: 'BAND ANH TRAI CENTRAL SAY HI',
-        name: 'CENTRAL',
-        id: 'azPxWWYLMDywA7YyfRvr',
-      },
-      {
-        ip: '203.205.26.20',
-        option: 5,
-        detail: 'BAND ANH TRAI CENTRAL SAY HI',
-        name: 'CENTRAL',
-        id: 'azPxWWYLMDywA7YyfRvr',
-      },
-    ];
+    //   {
+    //     ip: '203.205.26.20',
+    //     option: 3,
+    //     detail: 'BAND ANH TRAI CENTRAL SAY HI',
+    //     name: 'CENTRAL',
+    //     id: 'azPxWWYLMDywA7YyfRvr',
+    //   },
+    //   {
+    //     ip: '203.205.26.20',
+    //     option: 1,
+    //     detail: 'BAND ANH TRAI CENTRAL SAY HI',
+    //     name: 'CENTRAL',
+    //     id: 'azPxWWYLMDywA7YyfRvr',
+    //   },
+    //   {
+    //     ip: '203.205.26.20',
+    //     option: 1,
+    //     detail: 'BAND ANH TRAI CENTRAL SAY HI',
+    //     name: 'CENTRAL',
+    //     id: 'azPxWWYLMDywA7YyfRvr',
+    //   },
+    //   {
+    //     ip: '203.205.26.20',
+    //     option: 1,
+    //     detail: 'BAND ANH TRAI CENTRAL SAY HI',
+    //     name: 'CENTRAL',
+    //     id: 'azPxWWYLMDywA7YyfRvr',
+    //   },
+    //   {
+    //     ip: '203.205.26.20',
+    //     option: 2,
+    //     detail: 'BAND ANH TRAI CENTRAL SAY HI',
+    //     name: 'CENTRAL',
+    //     id: 'azPxWWYLMDywA7YyfRvr',
+    //   },
+    //   {
+    //     ip: '203.205.26.20',
+    //     option: 2,
+    //     detail: 'BAND ANH TRAI CENTRAL SAY HI',
+    //     name: 'CENTRAL',
+    //     id: 'azPxWWYLMDywA7YyfRvr',
+    //   },
+    //   {
+    //     ip: '203.205.26.20',
+    //     option: 4,
+    //     detail: 'BAND ANH TRAI CENTRAL SAY HI',
+    //     name: 'CENTRAL',
+    //     id: 'azPxWWYLMDywA7YyfRvr',
+    //   },
+    //   {
+    //     ip: '203.205.26.20',
+    //     option: 5,
+    //     detail: 'BAND ANH TRAI CENTRAL SAY HI',
+    //     name: 'CENTRAL',
+    //     id: 'azPxWWYLMDywA7YyfRvr',
+    //   },
+    // ];
     this.items = this.aggregateVotes(data);
   }
 
