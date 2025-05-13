@@ -18,7 +18,9 @@
 }
 
 .commit {
-  background-color: red;
+  background-image: url("/images/commit/background commit 1.png");
+  background-size: cover;
+  background-position: center;
   filter: blur(0px);
   transition: opacity 1s ease, filter 1s ease;
   position: relative;
@@ -44,9 +46,19 @@
 }
 
 .landing-page {
-  background-color: green;
+  background-image: url("/images/commit/background commit 2.png");
+  background-size: cover;
+  background-position: center;
   color: white;
   position: relative;
+}
+
+.shield {
+  position: absolute;
+  width: 450px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .fade {
@@ -60,8 +72,7 @@
   flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
-  background-color: yellow;
-  padding: 15px 0;
+  padding: 25px 0 10px 0;
 
   .logo {
     width: 50px;
@@ -111,5 +122,5 @@
   text-align: center;
   padding: 0 25px;
   position: absolute;
-  bottom: 20%;
+  bottom: 18%;
 }

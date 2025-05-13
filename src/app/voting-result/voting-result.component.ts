@@ -15,9 +15,14 @@ export class VotingResultComponent implements OnInit, OnDestroy {
 
   intervalId: any;
   async ngOnInit() {
+    this.getData();
     this.intervalId = setInterval(() => {
       this.getData();
     }, 60000); // 1 minute
+  }
+
+  async getData() {
+    const data = await firstValueFrom(this.firebaseService.getData());
     // const data = [
     //   {
     //     ip: '203.205.26.20',
@@ -100,10 +105,6 @@ export class VotingResultComponent implements OnInit, OnDestroy {
     //     id: 'azPxWWYLMDywA7YyfRvr',
     //   },
     // ];
-  }
-
-  async getData() {
-    const data = await firstValueFrom(this.firebaseService.getData());
     this.items = this.aggregateVotes(data);
   }
 

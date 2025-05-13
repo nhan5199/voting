@@ -15,6 +15,6 @@ export class VoteCommitComponent {
     this.clickButton = true;
     setTimeout(() => {
       this.isCommit = true;
-    }, 3000); // wait 2 seconds before starting fade
+    }, 2000); // wait 2 seconds before starting fade
   }
 }
