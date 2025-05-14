@@ -52,7 +52,7 @@ export class VotingResultComponent implements OnInit, OnDestroy {
     this.getData();
     this.intervalId = setInterval(() => {
       this.getData();
-    }, 60000); // 1 minute
+    }, 30000); // 30 seconds
   }
 
   async getData() {
@@ -140,7 +140,6 @@ export class VotingResultComponent implements OnInit, OnDestroy {
     //   },
     // ];
     this.items = this.aggregateVotes(data);
-    console.log('data: ', this.items);
   }
 
   aggregateVotes(data: any[]): any[] {
