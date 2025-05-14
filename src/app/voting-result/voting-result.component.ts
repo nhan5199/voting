@@ -17,18 +17,6 @@ export class VotingResultComponent implements OnInit, OnDestroy {
   async ngOnInit() {
     this.items = [
       {
-        name: 'NORTH',
-        detail: '',
-        option: 1,
-        count: 0,
-      },
-      {
-        name: 'CENTRAL',
-        detail: 'HÁT & MÚA',
-        option: 2,
-        count: 0,
-      },
-      {
         name: 'CENTRAL',
         detail: 'BAND ANH TRAI CENTRAL SAY HI',
         option: 3,
@@ -46,6 +34,18 @@ export class VotingResultComponent implements OnInit, OnDestroy {
         name: 'SOUTH',
         detail: 'LIÊN KHÚC',
         option: 5,
+        count: 0,
+      },
+      {
+        name: 'NORTH',
+        detail: '',
+        option: 1,
+        count: 0,
+      },
+      {
+        name: 'CENTRAL',
+        detail: 'HÁT & MÚA',
+        option: 2,
         count: 0,
       },
     ];
@@ -56,89 +56,89 @@ export class VotingResultComponent implements OnInit, OnDestroy {
   }
 
   async getData() {
-    // const data = await firstValueFrom(this.firebaseService.getData());
-    const data = [
-      {
-        ip: '203.205.26.20',
-        option: 3,
-        detail: 'BAND ANH TRAI CENTRAL SAY HI',
-        name: 'CENTRAL',
-        id: 'azPxWWYLMDywA7YyfRvr',
-      },
+    const data = await firstValueFrom(this.firebaseService.getData());
+    // const data = [
+    //   {
+    //     ip: '203.205.26.20',
+    //     option: 3,
+    //     detail: 'BAND ANH TRAI CENTRAL SAY HI',
+    //     name: 'CENTRAL',
+    //     id: 'azPxWWYLMDywA7YyfRvr',
+    //   },
 
-      {
-        ip: '203.205.26.20',
-        option: 3,
-        detail: 'BAND ANH TRAI CENTRAL SAY HI',
-        name: 'CENTRAL',
-        id: 'azPxWWYLMDywA7YyfRvr',
-      },
+    //   {
+    //     ip: '203.205.26.20',
+    //     option: 3,
+    //     detail: 'BAND ANH TRAI CENTRAL SAY HI',
+    //     name: 'CENTRAL',
+    //     id: 'azPxWWYLMDywA7YyfRvr',
+    //   },
 
-      {
-        ip: '203.205.26.20',
-        option: 3,
-        detail: 'BAND ANH TRAI CENTRAL SAY HI',
-        name: 'CENTRAL',
-        id: 'azPxWWYLMDywA7YyfRvr',
-      },
+    //   {
+    //     ip: '203.205.26.20',
+    //     option: 3,
+    //     detail: 'BAND ANH TRAI CENTRAL SAY HI',
+    //     name: 'CENTRAL',
+    //     id: 'azPxWWYLMDywA7YyfRvr',
+    //   },
 
-      {
-        ip: '203.205.26.20',
-        option: 3,
-        detail: 'BAND ANH TRAI CENTRAL SAY HI',
-        name: 'CENTRAL',
-        id: 'azPxWWYLMDywA7YyfRvr',
-      },
-      {
-        ip: '203.205.26.20',
-        option: 1,
-        name: 'NORTH',
-        detail: '',
-        id: 'azPxWWYLMDywA7YyfRvr',
-      },
-      {
-        ip: '203.205.26.20',
-        option: 1,
-        name: 'NORTH',
-        detail: '',
-        id: 'azPxWWYLMDywA7YyfRvr',
-      },
-      {
-        ip: '203.205.26.20',
-        option: 1,
-        name: 'NORTH',
-        detail: '',
-        id: 'azPxWWYLMDywA7YyfRvr',
-      },
-      {
-        ip: '203.205.26.20',
-        option: 2,
-        name: 'CENTRAL',
-        detail: 'HÁT & MÚA',
-        id: 'azPxWWYLMDywA7YyfRvr',
-      },
-      {
-        ip: '203.205.26.20',
-        option: 2,
-        name: 'CENTRAL',
-        detail: 'HÁT & MÚA',
-        id: 'azPxWWYLMDywA7YyfRvr',
-      },
-      {
-        ip: '203.205.26.20',
-        option: 4,
-        name: 'HCMG',
-        detail: 'LIÊN KHÚC',
-        id: 'azPxWWYLMDywA7YyfRvr',
-      },
-      {
-        ip: '203.205.26.20',
-        option: 5,
-        name: 'SOUTH',
-        detail: 'LIÊN KHÚC',
-        id: 'azPxWWYLMDywA7YyfRvr',
-      },
-    ];
+    //   {
+    //     ip: '203.205.26.20',
+    //     option: 3,
+    //     detail: 'BAND ANH TRAI CENTRAL SAY HI',
+    //     name: 'CENTRAL',
+    //     id: 'azPxWWYLMDywA7YyfRvr',
+    //   },
+    //   {
+    //     ip: '203.205.26.20',
+    //     option: 1,
+    //     name: 'NORTH',
+    //     detail: '',
+    //     id: 'azPxWWYLMDywA7YyfRvr',
+    //   },
+    //   {
+    //     ip: '203.205.26.20',
+    //     option: 1,
+    //     name: 'NORTH',
+    //     detail: '',
+    //     id: 'azPxWWYLMDywA7YyfRvr',
+    //   },
+    //   {
+    //     ip: '203.205.26.20',
+    //     option: 1,
+    //     name: 'NORTH',
+    //     detail: '',
+    //     id: 'azPxWWYLMDywA7YyfRvr',
+    //   },
+    //   {
+    //     ip: '203.205.26.20',
+    //     option: 2,
+    //     name: 'CENTRAL',
+    //     detail: 'HÁT & MÚA',
+    //     id: 'azPxWWYLMDywA7YyfRvr',
+    //   },
+    //   {
+    //     ip: '203.205.26.20',
+    //     option: 2,
+    //     name: 'CENTRAL',
+    //     detail: 'HÁT & MÚA',
+    //     id: 'azPxWWYLMDywA7YyfRvr',
+    //   },
+    //   {
+    //     ip: '203.205.26.20',
+    //     option: 4,
+    //     name: 'HCMG',
+    //     detail: 'LIÊN KHÚC',
+    //     id: 'azPxWWYLMDywA7YyfRvr',
+    //   },
+    //   {
+    //     ip: '203.205.26.20',
+    //     option: 5,
+    //     name: 'SOUTH',
+    //     detail: 'LIÊN KHÚC',
+    //     id: 'azPxWWYLMDywA7YyfRvr',
+    //   },
+    // ];
     this.items = this.aggregateVotes(data);
     console.log('data: ', this.items);
   }
@@ -162,11 +162,7 @@ export class VotingResultComponent implements OnInit, OnDestroy {
     });
 
     // Step 3: Sort by count DESC, then name DESC, then detail DESC
-    return updatedItems.sort((a, b) => {
-      if (b.count !== a.count) return b.count - a.count;
-      if (b.name !== a.name) return b.name.localeCompare(a.name);
-      return b.detail.localeCompare(a.detail);
-    });
+    return updatedItems;
   }
 
   ngOnDestroy(): void {

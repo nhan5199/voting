@@ -1,46 +1,39 @@
 <div class="container">
-  <p class="title">KẾT QUẢ BÌNH CHỌN</p>
-  <div class="voting-result">
-    <div class="top-three">
-      <div class="second">
-        <div class="top-item">
-          <img src="/images/khien-bat.png" alt="" class="logo" />
-          <p class="item-name">{{ items[0].name }} - {{ items[0]?.detail }}</p>
-          <p class="vote">{{ items[0]?.count }} votes</p>
-        </div>
-        <div class="number">2</div>
-      </div>
-      <div class="first">
-        <div class="top-item">
-          <img src="/images/khien-bat.png" alt="" class="logo" />
-          <p class="item-name">{{ items[1].name }} - {{ items[1]?.detail }}</p>
-          <p class="vote">{{ items[1]?.count }} votes</p>
-        </div>
-        <div class="number">1</div>
-      </div>
-      <div class="third">
-        <div class="top-item">
-          <img src="/images/khien-bat.png" alt="" class="logo" />
-          <p class="item-name">{{ items[2].name }} - {{ items[2]?.detail }}</p>
-          <p class="vote">{{ items[2]?.count }} votes</p>
-        </div>
-        <div class="number">3</div>
-      </div>
+  <div class="vote-count-container">
+    <div class="vote-count">
+      <img src="/images/result/text 1.png" alt="" class="text" />
+      <span class="count">{{ items[0].count }} <br /> </span>
     </div>
-
-    <div class="table">
-      <div class="table-item">
-        <div class="stt">4</div>
-        <img src="/images/khien-bat.png" alt="" class="logo" />
-        <p class="item-name">{{ items[3].name }} - {{ items[3]?.detail }}</p>
-        <p class="vote">{{ items[3]?.count }} votes</p>
-      </div>
-      <div class="table-item">
-        <div class="stt">5</div>
-        <img src="/images/khien-bat.png" alt="" class="logo" />
-        <p class="item-name">{{ items[4].name }} - {{ items[4]?.detail }}</p>
-        <p class="vote">{{ items[4]?.count }} votes</p>
-      </div>
+    <div class="vote-count">
+      <img
+        src="/images/result/text 2.png"
+        alt=""
+        class="text"
+        style="width: 180px"
+      />
+      <span class="count">{{ items[1].count }} <br /> </span>
+    </div>
+    <div class="vote-count">
+      <img src="/images/result/text 3.png" alt="" class="text" />
+      <span class="count">{{ items[2].count }} <br /> </span>
+    </div>
+    <div class="vote-count">
+      <img
+        src="/images/result/text 4.png"
+        alt=""
+        class="text"
+        style="width: 150px"
+      />
+      <span class="count">{{ items[3].count }} <br /> </span>
+    </div>
+    <div class="vote-count">
+      <img
+        src="/images/result/text 5.png"
+        alt=""
+        class="text"
+        style="width: 150px"
+      />
+      <span class="count">{{ items[4].count }} <br /> </span>
     </div>
   </div>
 </div>
