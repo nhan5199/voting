@@ -6,6 +6,7 @@ import {
   collectionData,
   doc,
   deleteDoc,
+  getDocs,
 } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 
@@ -28,5 +29,14 @@ export class FirebaseService {
   deleteData(id: string) {
     const docRef = doc(this.firestore, `items/${id}`);
     return deleteDoc(docRef);
+  }
+
+  async clearAllData(): Promise<void> {
+    const collRef = collection(this.firestore, 'items');
+    const snapshot = await getDocs(collRef);
+    const deletePromises = snapshot.docs.map((docSnap) =>
+      deleteDoc(doc(this.firestore, `items/${docSnap.id}`))
+    );
+    await Promise.all(deletePromises);
   }
 }

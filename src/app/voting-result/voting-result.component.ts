@@ -164,6 +164,10 @@ export class VotingResultComponent implements OnInit, OnDestroy {
     return updatedItems;
   }
 
+  clearData() {
+    this.firebaseService.clearAllData();
+  }
+
   ngOnDestroy(): void {
     clearInterval(this.intervalId);
   }
