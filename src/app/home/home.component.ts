@@ -24,6 +24,8 @@ import { IpService } from '../shared/services/ip.service';
 })
 export class HomeComponent implements OnInit {
   user: any;
+  voteCount: number = 0;
+
   items = [
     {
       name: 'NORTH',
@@ -78,8 +80,12 @@ export class HomeComponent implements OnInit {
     for (const item of data) {
       if (item.ip === this.user.ip) {
         this.votedItem = this.items.find((x) => x.option == +item.option);
-        this.isVoted = true;
+        this.voteCount += 1;
         this.isLoaded = true;
+      }
+
+      if (this.voteCount == 2) {
+        this.isVoted = true;
         break;
       }
     }
@@ -97,6 +103,10 @@ export class HomeComponent implements OnInit {
         name: this.votedItem.name,
         detail: this.votedItem.detail,
       });
+      this.voteCount += 1;
+    }
+
+    if (this.voteCount == 2) {
       this.isVoted = true;
     }
   }

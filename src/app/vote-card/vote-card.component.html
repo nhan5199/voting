@@ -1,19 +1,9 @@
 <div class="card">
-  <img src="/images/logo-bat.png" alt="" class="logo" />
-  <p class="description">
-    BÌNH CHỌN <br />
-    TIẾT MỤC NỘI BỘ
-  </p>
-  <img src="/images/khien-bat.png" alt="" class="shield" />
-  <div class="name">
-    <h5 class="title">{{ item.name }}</h5>
-    <p>{{ item.detail }}</p>
-  </div>
-  <div
-    class="vote-btn"
-    [ngClass]="isVoted ? 'disabled' : ''"
+  <img
+    src="/images/voting/vote ngay.png"
+    alt=""
+    class="logo"
     (click)="onVotePerfomance()"
-  >
-    Bình chọn ngay
-  </div>
+  />
+  <img [src]="'/images/voting/' + item.option + '.png'" alt="" class="text" />
 </div>

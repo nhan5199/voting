@@ -1,31 +1,19 @@
 <div class="container">
-  <div class="header">
-    <div class="left">
-      HỘI TỤ <br />
-      <span class="left-text">ANH TÀI</span>
-    </div>
-
-    <img src="/images/khien-bat.png" alt="" class="header-logo" />
-
-    <div class="right">
-      VƯỢT NGÀN <br />
-      <span class="right-text">CHÔNG GAI</span>
-    </div>
-  </div>
-  <div class="carousel-container hide-scrollbar" *ngIf="!isVoted && !isLoaded">
-    <div class="carousel-wrapper">
-      <div class="carousel-item" *ngFor="let item of items">
-        <app-vote-card
-          [item]="item"
-          (onVote)="onVote($event)"
-          [isVoted]="isVoted"
-        />
-      </div>
+  <div class="list-item" *ngIf="!isVoted">
+    <div class="item" *ngFor="let item of items">
+      <app-vote-card
+        [item]="item"
+        (onVote)="onVote($event)"
+        [isVoted]="isVoted"
+      />
     </div>
   </div>
 
   <div class="voted" *ngIf="isVoted">
-    <app-voted-card [item]="votedItem" />
+    <p>
+      CẢM ƠN BẠN <br />
+      ĐÃ BÌNH CHỌN
+    </p>
   </div>
 </div>
 
