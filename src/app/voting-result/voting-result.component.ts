@@ -56,6 +56,7 @@ export class VotingResultComponent implements OnInit, OnDestroy {
   }
 
   async getData() {
+    console.log("get data");
     const data = await firstValueFrom(this.firebaseService.getData());
     // const data = [
     //   {
