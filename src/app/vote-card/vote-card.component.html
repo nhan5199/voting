@@ -3,6 +3,7 @@
     src="/images/voting/vote ngay.png"
     alt=""
     class="logo"
+    [ngClass]="hasBeenVoted ? 'disabled' : ''"
     (click)="onVotePerfomance()"
   />
   <img [src]="'/images/voting/' + item.option + '.png'" alt="" class="text" />
