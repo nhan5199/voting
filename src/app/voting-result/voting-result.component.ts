@@ -52,7 +52,7 @@ export class VotingResultComponent implements OnInit, OnDestroy {
     this.getData();
     this.intervalId = setInterval(() => {
       this.getData();
-    }, 30000); // 30 seconds
+    }, 15000); // 30 seconds
   }
 
   async getData() {
