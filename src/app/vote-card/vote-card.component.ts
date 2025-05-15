@@ -22,7 +22,7 @@ export class VoteCardComponent {
   @Output() onVote: EventEmitter<number> = new EventEmitter<number>();
 
   onVotePerfomance() {
-    if (!this.isVoted) {
+    if (!this.isVoted && !this.hasBeenVoted ) {
       this.onVote.emit(this.item.option);
       this.hasBeenVoted = true;
     }
