@@ -67,6 +67,7 @@ export class HomeComponent implements OnInit {
   isVoted: boolean = false;
   isLoaded: boolean = false;
   votedItem: any;
+  votedOption : number = -1;
 
   constructor(
     private firebaseService: FirebaseService,
@@ -81,6 +82,7 @@ export class HomeComponent implements OnInit {
       if (item.ip === this.user.ip) {
         this.votedItem = this.items.find((x) => x.option == +item.option);
         this.voteCount += 1;
+        this.votedOption = item.option;
         this.isLoaded = true;
       }
 
