@@ -5,6 +5,7 @@
         [item]="item"
         (onVote)="onVote($event)"
         [isVoted]="isVoted"
+        [hasBeenVoted]="item.option == votedOption"
       />
     </div>
   </div>
