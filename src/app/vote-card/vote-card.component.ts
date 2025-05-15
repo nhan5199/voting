@@ -18,11 +18,13 @@ import {
 export class VoteCardComponent {
   @Input() item: any;
   @Input() isVoted: boolean = false;
+  @Input() hasBeenVoted : boolean = false;
   @Output() onVote: EventEmitter<number> = new EventEmitter<number>();
 
   onVotePerfomance() {
     if (!this.isVoted) {
       this.onVote.emit(this.item.option);
+      this.hasBeenVoted = true;
     }
   }
 }
