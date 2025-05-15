@@ -52,11 +52,10 @@ export class VotingResultComponent implements OnInit, OnDestroy {
     this.getData();
     this.intervalId = setInterval(() => {
       this.getData();
-    }, 15000); // 30 seconds
+    }, 20000); // 30 seconds
   }
 
   async getData() {
-    console.log("get data");
     const data = await firstValueFrom(this.firebaseService.getData());
     // const data = [
     //   {
