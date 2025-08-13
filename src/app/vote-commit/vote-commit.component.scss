@@ -36,11 +36,10 @@
   }
 }
 
-
 .commit, .thank-you{
   position:absolute;
     left: 50%;
-    top:50%;
+    top:45%;
     transform: translate(-50%,-50%);    
 }
 
@@ -87,7 +86,7 @@
     top:50%;
     transform: translate(-50%,-50%);  
     z-index:500;
-    width:320px;
+    width:350px;
 }
 
 @keyframes fadeIn {
