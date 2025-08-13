@@ -1,14 +1,20 @@
 <div class="container">
-  <div class="commit" [ngClass]="isCommit ? 'fade' : ''">
-    <button [ngClass]="clickButton ? 'disabled' : ''" (click)="onCommit()">
-      COMMIT
-    </button>
+  <div class="logo">
+    <img src="/images/commit/logo.png" alt="">
   </div>
 
-  <div class="landing-page" *ngIf="isCommit">
-    <div class="description">
-      Cảm ơn bạn đã cam kết đồng hành và nỗ lực cùng BAT!
-    </div>
+  <div class="title">
+    <img src="/images/commit/title.png" alt="">
+  </div>
+
+  <div class="commit" [ngClass]="isCommit ? 'fade' : ''" (click)="onCommit()">
+    <img src="/images/commit/commit-button.png" alt="">
+    <p>Commit</p>
+  </div>
+
+  <div class="thank-you" *ngIf="isCommit">
+    <img class="thank-you-background" src="/images/commit/thank-you-title.png" alt="">
+    <img class="thank-you-text" src="/images/commit/thank-you-text.png" alt="">
   </div>
 </div>
 
