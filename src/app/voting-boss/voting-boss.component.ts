@@ -18,10 +18,10 @@ import { FirebaseService } from '../shared/services/firebase.service';
     VoteCardComponent,
     VotedCardComponent,
   ],
-  templateUrl: './home.component.html',
-  styleUrl: './home.component.scss',
+  templateUrl: './voting-boss.component.html',
+  styleUrl: './voting-boss.component.scss',
 })
-export class HomeComponent implements OnInit {
+export class VotingBossComponent implements OnInit {
   private userId: string | null = null;
   isVoted = false;
   votedItem: any;
@@ -38,6 +38,16 @@ export class HomeComponent implements OnInit {
       option: 2,
       id: 'tiet-muc-2',
     },
+    {
+      name: 'Tiết mục 3',
+      option: 3,
+      id: 'tiet-muc-3',
+    },
+    {
+      name: 'Tiết mục 4',
+      option: 4,
+      id: 'tiet-muc-4',
+    }
   ];
 
   constructor(private firebaseService: FirebaseService) {}
@@ -50,8 +60,10 @@ export class HomeComponent implements OnInit {
       localStorage.setItem('userId', this.userId);
     }
 
+    console.log("data: ", this.userId)
+
     // Get firebase data
-    const data = await firstValueFrom(this.firebaseService.getData('items'));
+    const data = await firstValueFrom(this.firebaseService.getData('items-boss'));
 
     // Check if user has already voted
     const existingVote = data.find((item: any) => item.userId === this.userId);
@@ -74,7 +86,7 @@ export class HomeComponent implements OnInit {
       option: option,
       name: this.votedItem.name,
       itemId: this.votedItem.id
-    }, 'items');
+    }, 'items-boss');
 
     this.votedOption = option;
     this.isVoted = true;

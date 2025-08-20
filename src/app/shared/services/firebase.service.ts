@@ -16,18 +16,18 @@ import { Observable } from 'rxjs';
 export class FirebaseService {
   constructor(private firestore: Firestore) {}
 
-  getData(): Observable<any[]> {
-    const coll = collection(this.firestore, 'items'); // This is the correct modular way
+  getData(collectionName : string): Observable<any[]> {
+    const coll = collection(this.firestore, collectionName); // This is the correct modular way
     return collectionData(coll, { idField: 'id' }) as Observable<any[]>;
   }
 
-  addData(data: any) {
-    const coll = collection(this.firestore, 'items');
+  addData(data: any, collectionName : string) {
+    const coll = collection(this.firestore, collectionName);
     return addDoc(coll, data);
   }
 
-  deleteData(id: string) {
-    const docRef = doc(this.firestore, `items/${id}`);
+  deleteData(id: string, collectionName : string) {
+    const docRef = doc(this.firestore, `${collectionName}/${id}`);
     return deleteDoc(docRef);
   }
 

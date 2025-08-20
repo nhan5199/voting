@@ -6,10 +6,10 @@ import { firstValueFrom } from 'rxjs';
   selector: 'app-voting-result',
   standalone: true,
   imports: [],
-  templateUrl: './voting-result.component.html',
-  styleUrl: './voting-result.component.scss',
+  templateUrl: './result-boss.component.html',
+  styleUrl: './result-boss.component.scss',
 })
-export class VotingResultComponent implements OnInit, OnDestroy {
+export class ResultBossComponent implements OnInit, OnDestroy {
   items: any[] = [];
   constructor(private firebaseService: FirebaseService) {}
 
@@ -27,6 +27,17 @@ export class VotingResultComponent implements OnInit, OnDestroy {
         option: 2,
         count: 0,
       }
+      ,{
+        name: 'Tiết mục 3',
+        option: 2,
+        count: 0,
+      },
+
+      {
+        name: 'Tiết mục 4',
+        option: 3,
+        count: 0,
+      }
     ];
     this.getData();
     this.intervalId = setInterval(() => {
@@ -35,7 +46,7 @@ export class VotingResultComponent implements OnInit, OnDestroy {
   }
 
   async getData() {
-    const data = await firstValueFrom(this.firebaseService.getData('items'));
+    const data = await firstValueFrom(this.firebaseService.getData('items-boss'));
     
     this.items = this.aggregateVotes(data);
   }

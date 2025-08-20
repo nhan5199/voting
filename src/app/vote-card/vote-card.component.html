@@ -1,10 +1,8 @@
 <div class="card">
-  <img
-    src="/images/voting/vote ngay.png"
-    alt=""
-    class="logo"
-    [ngClass]="hasBeenVoted ? 'disabled' : ''"
-    (click)="onVotePerfomance()"
-  />
-  <img [src]="'/images/voting/' + item.option + '.png'" alt="" class="text" />
+  <div class="vote-button" (click)="onVotePerfomance()">
+    <img src="/images/voting/vote-button-background.png" alt="" class="button-background">
+    <img src="/images/voting/vote-text.png" alt="" class="text">
+  </div>
+
+  <img [src]="'/images/voting/' + item.id + '.png'" alt="">
 </div>
