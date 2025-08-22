@@ -31,12 +31,12 @@ export class HomeComponent implements OnInit {
     {
       name: 'Tiết mục 1',
       option: 1,
-      id: 'tiet-muc-1',
+      id: 'voting/tiet-muc-1',
     },
     {
       name: 'Tiết mục 2',
       option: 2,
-      id: 'tiet-muc-2',
+      id: 'voting/tiet-muc-2',
     },
   ];
 

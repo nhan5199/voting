@@ -1,8 +1,8 @@
-<div class="card">
-  <div class="vote-button" (click)="onVotePerfomance()">
+<div class="card" (click)="onVotePerfomance()">
+  <div class="vote-button" >
     <img src="/images/voting/vote-button-background.png" alt="" class="button-background">
     <img src="/images/voting/vote-text.png" alt="" class="text">
   </div>
 
-  <img [src]="'/images/voting/' + item.id + '.png'" alt="">
+  <img [src]="'/images/' + item.id + '.png'" alt="" class="name">
 </div>

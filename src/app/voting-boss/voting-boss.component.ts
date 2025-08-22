@@ -31,22 +31,22 @@ export class VotingBossComponent implements OnInit {
     {
       name: 'Tiết mục 1',
       option: 1,
-      id: 'tiet-muc-1',
+      id: 'voting-boss/boss-1',
     },
     {
       name: 'Tiết mục 2',
       option: 2,
-      id: 'tiet-muc-2',
+      id: 'voting-boss/boss-2',
     },
     {
       name: 'Tiết mục 3',
       option: 3,
-      id: 'tiet-muc-3',
+      id: 'voting-boss/boss-3',
     },
     {
       name: 'Tiết mục 4',
       option: 4,
-      id: 'tiet-muc-4',
+      id: 'voting-boss/boss-4',
     }
   ];
 
