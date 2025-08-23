@@ -7,14 +7,15 @@ import {
 } from '@angular/core';
 
 @Component({
-  selector: 'app-vote-card',
+  selector: 'app-vote-boss-card',
+  
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './vote-card.component.html',
-  styleUrl: './vote-card.component.scss',
+  templateUrl: './vote-boss-card.component.html',
+  styleUrl: './vote-boss-card.component.scss'
 })
-export class VoteCardComponent {
-  @Input() item: any;
+export class VoteBossCardComponent {
+@Input() item: any;
   @Output() onVote: EventEmitter<number> = new EventEmitter<number>();
 
   onVotePerfomance() {

@@ -6,7 +6,7 @@
   </div>
   <div class="list-item" *ngIf="!isVoted">
     <div class="item" *ngFor="let item of items">
-      <app-vote-card
+      <app-vote-boss-card
         [item]="item"
         (onVote)="onVote($event)"
       />

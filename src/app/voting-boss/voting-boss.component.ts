@@ -3,9 +3,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterOutlet } from '@angular/router';
 import { firstValueFrom } from 'rxjs';
-import { VoteCardComponent } from '../vote-card/vote-card.component';
-import { VotedCardComponent } from '../voted-card/voted-card.component';
 import { FirebaseService } from '../shared/services/firebase.service';
+import { VoteBossCardComponent } from '../vote-boss-card/vote-boss-card.component';
+import { VotedCardComponent } from '../voted-card/voted-card.component';
 
 @Component({
   selector: 'app-home',
@@ -15,7 +15,7 @@ import { FirebaseService } from '../shared/services/firebase.service';
     FormsModule,
     CommonModule,
     ReactiveFormsModule,
-    VoteCardComponent,
+    VoteBossCardComponent,
     VotedCardComponent,
   ],
   templateUrl: './voting-boss.component.html',
