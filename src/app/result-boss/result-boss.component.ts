@@ -29,13 +29,13 @@ export class ResultBossComponent implements OnInit, OnDestroy {
       }
       ,{
         name: 'Tiết mục 3',
-        option: 2,
+        option: 3,
         count: 0,
       },
 
       {
         name: 'Tiết mục 4',
-        option: 3,
+        option: 4,
         count: 0,
       }
     ];
