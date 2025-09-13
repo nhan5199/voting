@@ -1,11 +1,12 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FirebaseService } from '../shared/services/firebase.service';
 import { firstValueFrom } from 'rxjs';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-voting-result',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './voting-result.component.html',
   styleUrl: './voting-result.component.scss',
 })
@@ -16,22 +17,61 @@ export class VotingResultComponent implements OnInit, OnDestroy {
   intervalId: any;
   async ngOnInit() {
     this.items = [
-      {
-        name: 'Tiết mục 1',
-        option: 1,
-        count: 0,
-      },
-
-      {
-        name: 'Tiết mục 2',
-        option: 2,
-        count: 0,
-      }
-    ];
+    {
+      name: '1',
+      option: 1,
+      count: 0
+    },
+    {
+      name: '2',
+      option: 2,
+      count: 0
+    },
+    {
+      name: '3',
+      option: 3,
+      count: 0
+    },
+    {
+      name: '4',
+      option: 4,
+      count: 0
+    },
+    {
+      name: '5',
+      option: 5,
+      count: 0
+    },
+    {
+      name: '6',
+      option: 6,
+      count: 0
+    },
+    {
+      name: '7',
+      option: 7,
+      count: 0
+    },
+    {
+      name: '8',
+      option: 8,
+      count: 0
+    },
+    {
+      name: '9',
+      option: 9,
+      count: 0
+    },
+    {
+      name: '10',
+      option: 10,
+      count: 0
+    },
+  ];
     this.getData();
     this.intervalId = setInterval(() => {
       this.getData();
-    }, 20000); // 30 seconds
+    }, 5000); // 5 seconds
   }
 
   async getData() {

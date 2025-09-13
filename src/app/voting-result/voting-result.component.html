@@ -3,20 +3,15 @@
 
   <div class="header">
     <img src="/images/voting/header.png" alt="" class="heading-logo">
-    <img src="/images/voting/title.png" alt="" class="title">
+    <img src="/images/voting/sub-header.png" alt="" class="sub-heading">
   </div>
   <div class="vote-count-container">
-    <div class="vote-count">
-      <img src="/images/result/tiet-muc-1.png" alt="" class="text-1" style="width:270px"/>
-      <span class="count">{{ items[0].count }} <br /> </span>
-    </div>
-    <div class="vote-count">
-      <img
-        src="/images/result/tiet-muc-2.png"
-        alt=""
-        class="text-2" style="width:270px"
-      />
-      <span class="count">{{ items[1].count }} <br /> </span>
+
+    <div class="vote-count" *ngFor="let item of items" >
+      <div class="text" [ngClass]="{'text-special' : item.name == '6' || item.name == '9'}">
+        <img [src]="'/images/voting/voting-name/' + item.name + '.png'" alt=""/>
+      </div>
+      <span class="count">{{ item?.count }} <br /> </span>
     </div>
   </div>
 </div>

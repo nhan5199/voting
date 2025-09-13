@@ -29,14 +29,44 @@ export class HomeComponent implements OnInit {
 
   items = [
     {
-      name: 'Tiết mục 1',
+      name: '1',
       option: 1,
-      id: 'voting/tiet-muc-1',
     },
     {
-      name: 'Tiết mục 2',
+      name: '2',
       option: 2,
-      id: 'voting/tiet-muc-2',
+    },
+    {
+      name: '3',
+      option: 3,
+    },
+    {
+      name: '4',
+      option: 4,
+    },
+    {
+      name: '5',
+      option: 5,
+    },
+    {
+      name: '6',
+      option: 6,
+    },
+    {
+      name: '7',
+      option: 7,
+    },
+    {
+      name: '8',
+      option: 8,
+    },
+    {
+      name: '9',
+      option: 9,
+    },
+    {
+      name: '10',
+      option: 10,
     },
   ];
 
@@ -73,7 +103,7 @@ export class HomeComponent implements OnInit {
       userId: this.userId, // unique id for user
       option: option,
       name: this.votedItem.name,
-      itemId: this.votedItem.id
+      itemId: this.votedItem.name
     }, 'items');
 
     this.votedOption = option;

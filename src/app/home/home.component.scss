@@ -20,10 +20,20 @@
   padding-bottom:25px;
 }
 
+.heading-logo{
+  width:80%;
+}
+
+.sub-heading{
+  width:90%;
+}
+
 .list-item {
   display:flex;
   flex-direction: column;
   gap: 40px;
+  margin-top:15px;
+  padding-bottom:40px;
 }
 
 .voted {
