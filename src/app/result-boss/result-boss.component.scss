@@ -1,5 +1,5 @@
 .container {
-  background-image: url("/images/result/background.png");
+  background-image: url("/images/boss/result/background.png");
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
@@ -18,42 +18,116 @@
   padding-top:25px;
 }
 
-.heading-logo, .title, .sub-heading{
-  padding-bottom:20px;
+.logo{
+  height:100px;
 }
 
-
-.vote-count-container {
+.title{
+  height:70px;
+  width: 100%;
+  position:relative;
   display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .title-background{
+    position:absolute;
+    height:90%;
+  }
+
+  .title-text{
+    height:35px;
+    width:auto;
+    z-index:10;
+  }
+}
+
+.list-vote-count{
+  display:flex;
   flex-direction: row;
-  color: white;
-  font-size: 25px;
-  font-weight: 700;
-  position: absolute;
-  top: 70%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  gap: 200px;
+  margin-top:100px;
+  gap:40px;
+  align-items: center;
+  justify-content: center;
+}
 
-  .vote-count {
-    width: 90px;
-    height: 300px;
+.image-container {
+  display:flex;
+  flex-direction: row;
+  align-items: center;
+  width:275px;
+  height:190px;
+  justify-content: space-between;
+  position:relative;
+  
+  .frame {
+    width: 130px;
+    height:182px;
+    top:0;
+    position:absolute;
+  }
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    background-image: url("/images/result/cot.png");
-    background-size: cover;
-    .count {
-      text-align: center;
+  .left-img {
+    .frame{
+      left:0;
     }
-
-    .text {
-      position: absolute;
-      top: -30%;
+    .frame, .image-content{
+      transform: rotate(-5deg);
     }
   }
+
+  .right-img {
+    .frame{
+      right:0;
+    }
+
+    .frame, .image-content{
+      transform: rotate(5deg);
+    }
+  }
+
+
+  .image-content {
+    background-image: url("/images/boss/voting/frame.png");
+    z-index: 10;
+    width: 116px;
+    height: 166px;
+    background-position: top;
+    margin-right: 7px;
+    margin-bottom: 6px;
+  }
+}
+
+.vote-count-container{
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  gap:5px;
+  flex-direction: column;
+}
+
+.vote-count{
+  position:relative;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  height:45px;
+  width:200px;
+}
+
+.count-background{
+  width:100%;
+  height:100%;
+  position:absolute;
+  top:0;
+  left:0;
+}
+
+.count{
+  font-size:30px;
+  font-weight:700;
+  color:white;
+  z-index:10;
 }
 
 .clear-data {
