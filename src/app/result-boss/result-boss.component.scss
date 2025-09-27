@@ -74,6 +74,10 @@
     .frame, .image-content{
       transform: rotate(-5deg);
     }
+
+    .image-content{
+      margin-left:7px;
+    }
   }
 
   .right-img {
@@ -84,6 +88,10 @@
     .frame, .image-content{
       transform: rotate(5deg);
     }
+
+    .image-content{
+      margin-right:7px;
+    }
   }
 
 
@@ -93,9 +101,10 @@
     width: 116px;
     height: 166px;
     background-position: top;
-    margin-right: 7px;
     margin-bottom: 6px;
   }
+
+
 }
 
 .vote-count-container{

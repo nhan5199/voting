@@ -56,7 +56,7 @@ export class ResultBossComponent implements OnInit, OnDestroy {
     this.getData();
     this.intervalId = setInterval(() => {
       this.getData();
-    }, 5000); // 15 seconds
+    }, 5000000); // 15 seconds
   }
 
   async getData() {
