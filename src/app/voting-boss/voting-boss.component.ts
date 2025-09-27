@@ -32,21 +32,36 @@ export class VotingBossComponent implements OnInit {
       name: 'Tiết mục 1',
       option: 1,
       id: 'voting-boss/boss-1',
+      imgUrl1:"/images/boss/voting/1.jpg",
+      imgUrl2:"/images/boss/voting/1.jpg"
     },
     {
       name: 'Tiết mục 2',
       option: 2,
       id: 'voting-boss/boss-2',
+      imgUrl1:"",
+      imgUrl2:""
     },
     {
       name: 'Tiết mục 3',
       option: 3,
       id: 'voting-boss/boss-3',
+      imgUrl1:"",
+      imgUrl2:""
     },
     {
       name: 'Tiết mục 4',
       option: 4,
       id: 'voting-boss/boss-4',
+      imgUrl1:"",
+      imgUrl2:""
+    },
+    {
+      name: 'Tiết mục 5',
+      option: 5,
+      id: 'voting-boss/boss-5',
+      imgUrl1:"",
+      imgUrl2:""
     }
   ];
 
