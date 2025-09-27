@@ -4,7 +4,6 @@
   gap:10px;
   align-items: center;
   justify-content: space-between;
-  height:170px;
   position:relative;
 }
 
@@ -12,34 +11,30 @@
   display:flex;
   flex-direction: row;
   align-items: center;
-  width:210px;
-  height:140px;
+  width:200px;
+  height:300px;
   justify-content: space-between;
   position:relative;
   
   .frame {
-    width: 100px;
-    height:140px;
-    top:0;
     position:absolute;
+    width:200px;
+    height:auto;
+    top:0;
+    left:0
   }
-
-  .left-img .frame{
-    left:0;
-  }
-
-  .right-img .frame{
-    right:0;
-  }
-
 
   .image-content {
     background-image: url("/images/boss/voting/frame.png");
     z-index: 10;
-    width:100px;
-    height:140px;
+    width: 180px;
+    height: 255px;
     background-position: top;
+    margin-bottom: 20px;
+    margin-left: 10px;
   }
+
+
 }
 
 .vote-button{

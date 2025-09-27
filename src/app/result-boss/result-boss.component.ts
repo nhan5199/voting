@@ -18,45 +18,40 @@ export class ResultBossComponent implements OnInit, OnDestroy {
   async ngOnInit() {
     this.items = [
     {
-      name: 'Tiết mục 1',
+      name: 'Đội 1',
       option: 1,
       count: 0,
-      imgUrl1:"/images/boss/voting/1.jpg",
-      imgUrl2:"/images/boss/voting/1.jpg"
+      imgUrl:"/images/boss/team-1.jpeg",
     },
     {
-      name: 'Tiết mục 2',
+      name: 'Đội 2',
       option: 2,
       count: 0,
-      imgUrl1:"",
-      imgUrl2:""
+      imgUrl:"/images/boss/team-2.jpeg",
     },
     {
-      name: 'Tiết mục 3',
+      name: 'Đội 3',
       option: 3,
       count: 0,
-      imgUrl1:"",
-      imgUrl2:""
+      imgUrl:"/images/boss/team-3.jpg",
     },
     {
-      name: 'Tiết mục 4',
+      name: 'Đội 4',
       option: 4,
       count: 0,
-      imgUrl1:"",
-      imgUrl2:""
+      imgUrl:"/images/boss/team-4.jpg",
     },
     {
-      name: 'Tiết mục 5',
+      name: 'Đội 5',
       option: 5,
       count: 0,
-      imgUrl1:"",
-      imgUrl2:""
+      imgUrl:"/images/boss/team-5.jpg",
     }
   ];
     this.getData();
     this.intervalId = setInterval(() => {
       this.getData();
-    }, 15000); // 15 seconds
+    }, 1500000); // 15 seconds
   }
 
   async getData() {

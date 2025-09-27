@@ -11,24 +11,17 @@
   </div>
   <div class="list-vote-count">
     <div class="vote-count-container" *ngFor="let item of items">
-    <div class="image-container">
-      <div class="left-img">
-        <img class="frame" src="/images/boss/voting/frame.png" alt="image 1">
+      <p class="item-name">{{item.name}}</p>
+      <div class="image-container">
+          <img class="frame" src="/images/boss/voting/frame.png" alt="image 1">
 
-        <img class="image-content" [src]="item.imgUrl1" alt="image 1">
-      </div>
-      <div class="right-img">
-        <img class="frame" src="/images/boss/voting/frame.png" alt="image 2">
-
-        <img class="image-content" [src]="item.imgUrl2" alt="image 2">
+          <img class="image-content" [src]="item.imgUrl" alt="image 1">
+        </div>
+      <div class="vote-count">
+        <img src="/images/boss/result/count-background.png" alt="" class="count-background">
+        
+        <span class="count">{{ item.count }} <br /> </span>
       </div>
     </div>
-    <div class="vote-count">
-      <img src="/images/boss/result/count-background.png" alt="" class="count-background">
-      
-      <span class="count">{{ item.count }} <br /> </span>
-    </div>
-    
-  </div>
   </div>
 </div>

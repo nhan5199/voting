@@ -45,6 +45,17 @@
   }
 }
 
+.vote-who{
+  color: white;
+    font-size: 25px;
+    font-weight: bold;
+    margin-top: 15px;
+
+   @media (max-width:380px){
+    font-size: 20px;
+  } 
+}
+
 .logo{
   width:120px;
 }
@@ -53,9 +64,9 @@
   display:flex;
   flex-direction: column;
   gap: 20px;
-  margin-top:15px;
+  margin-top:30px;
   overflow-y: auto;
-  max-height:58svh;
+  max-height:50svh;
 }
 
 .voted {

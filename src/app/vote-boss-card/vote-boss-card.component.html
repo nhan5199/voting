@@ -1,15 +1,8 @@
 <div class="card">
   <div class="image-container">
-    <div class="left-img img">
-      <img class="frame" src="/images/boss/voting/frame.png" alt="image 1">
+    <img class="frame" src="/images/boss/voting/frame.png" alt="image 1">
 
-      <img class="image-content" [src]="item.imgUrl1" alt="image 1">
-    </div>
-    <div class="right-img img">
-      <img class="frame" src="/images/boss/voting/frame.png" alt="image 2">
-
-      <img class="image-content" [src]="item.imgUrl2" alt="image 2">
-    </div>
+    <img class="image-content" [src]="item.imgUrl" alt="image 1">
   </div>
  <img (click)="onVotePerfomance()" src="/images/boss/voting/vote-button.png" alt="" class="vote-button">
   <img [src]="'/images/' + item.id + '.png'" alt="" class="name">
