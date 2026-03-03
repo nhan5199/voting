@@ -71,12 +71,16 @@
         .progress-fill {
           height: 100%;
           width: 0;
-          border-top-right-radius:20px;
-          border-bottom-right-radius:20px;
+          position: relative;
 
-          box-sizing: border-box;
-          border:5px solid white;
-          border-left:0 !important;
+          /* Arrow shape */
+          clip-path: polygon(
+            0 0,
+            calc(100% - 30px) 0,
+            100% 50%,
+            calc(100% - 30px) 100%,
+            0 100%
+          );
 
           background: linear-gradient(
             90deg,
@@ -85,6 +89,47 @@
             #5fcf7b 100%
           );
           transition: width 0.8s ease;
+        }
+
+        .progress-fill::after {
+          content: "";
+          position: absolute;
+          top: 0;
+          right: 0;
+          height: 100%;
+          width: 30px;
+
+          background: white;
+
+          clip-path: polygon(
+            0 0,
+            100% 50%,
+            0 100%
+          );
+        }
+
+        .progress-inner {
+          position: absolute;
+          top: 5px;
+          left: 5px;
+          right: 5px;
+          bottom: 5px;
+
+          clip-path: polygon(
+            0 0,
+            calc(100% - 25px) 0,
+            100% 50%,
+            calc(100% - 25px) 100%,
+            0 100%
+          );
+
+          background: linear-gradient(
+            90deg,
+            #2f6f49 0%,
+            #3b7851 50%,
+            #5fcf7b 100%
+          );
+          z-index:10;
         }
 
         .count {
@@ -105,15 +150,8 @@
 
 
 .clear-data {
-  padding: 10px 19px;
-  background-color: red;
-  color: white;
-  font-size: 19px;
-  position: absolute;
-  top: 10%;
-  left: 100px;
-  border-radius: 15px;
-  font-weight: 700;
-  cursor: pointer;
-  border: 3px solid white;
+  position:absolute;
+  bottom:15%;
+  right:5%;
+  color:white
 }
