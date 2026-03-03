@@ -104,6 +104,8 @@ export class VotingResultComponent implements OnInit, OnDestroy {
 
   clearData() {
     this.firebaseService.clearAllData();
+
+    this.getData();
   }
 
   ngOnDestroy(): void {
