@@ -1,5 +1,5 @@
 .container {
-  background-image: url("/images/result/background.png");
+  background-image: url("/images/result/result-background.png");
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
@@ -8,76 +8,101 @@
   height: 100vh;
   width: 100vw;
   margin: 0;
+  background-color:white;
+  position: relative;
 }
 
-.header{
-  width:500px;
-  min-width:500px;
-  margin:0 auto;
-  text-align: center;
-  display:flex;
-  flex-direction: column;
-  gap:50px;
-  padding-top:4%;
-  justify-content: center;
-  align-items: center;
+.voting-details{
+  position:absolute;
+  top:42%;
+  transform: translateY(-50%);
+  right:10%;
 
-  .heading-logo{
-    width:400px;
+  display:flex;
+  flex-direction:column;
+  gap: 20px;
+
+  .heading-logo, .sub-heading{
+    height:25px;
+    width:auto;
+    display:block;
+    margin:0 auto;
   }
 
   .sub-heading{
-    width:700px;
+    height:30px;
+    margin-top:20px;
   }
 
-}
-
-
-
-
-.vote-count-container {
-  display: flex;
-  flex-direction: row;
-  color: white;
-  font-size: 25px;
-  font-weight: 700;
-  position: absolute;
-  top: 60%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  gap: 58px;
-
-  .vote-count {
-    width: 60px;
-    height: 250px;
-
+  .vote-count-container {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column;
+    gap:20px;
+    min-width:550px;
 
-    background-image: url("/images/result/cot.png");
-    background-size: cover;
-    .count {
-      text-align: center;
-    }
-
-    .text{
-      position: absolute;
-      top:100%;
+    .vote-count{
       display:flex;
-      align-items: end;
-      height:40px;
+      flex-direction: row;
+      align-items: center;
+      height:60px;
 
-      img{
-        zoom:0.22
+      .team-name{
+        font-size: 20px;
+        height:100%;
+        display:flex; 
+        align-items: center;
+        justify-content: center;
+        background-color:white;
+        color: #304641;
+        text-transform: uppercase;
+        padding: 0 20px;
+        max-width:200px;
+        font-weight:700;
+      }
+
+      .progress-bar {
+        flex: 1 1 auto;
+        height: 100%;
+        position: relative;
+        background-color: rgba(255,255,255,0.2);
+        overflow: hidden;
+        border-radius: 0 10px 10px 0;
+
+        .progress-fill {
+          height: 100%;
+          width: 0;
+          border-top-right-radius:20px;
+          border-bottom-right-radius:20px;
+
+          box-sizing: border-box;
+          border:5px solid white;
+          border-left:0 !important;
+
+          background: linear-gradient(
+            90deg,
+            #2f6f49 0%,
+            #3b7851 50%,
+            #5fcf7b 100%
+          );
+          transition: width 0.8s ease;
+        }
+
+        .count {
+          font-size: 20px;
+          color: white;
+          position: absolute;
+          right: 20px;
+          top: 50%;
+          transform: translateY(-50%);
+          font-weight: 700;
+          z-index: 2;
+        }
       }
     }
-
-    .text-special{
-      top:101% !important;
-    }
   }
 }
+
+
 
 .clear-data {
   padding: 10px 19px;

@@ -1,17 +1,27 @@
 <div class="container">
 <!--   <p class="clear-data" (click)="clearData()">Clear data</p> -->
 
-  <div class="header">
-    <img src="/images/voting/header.png" alt="" class="heading-logo">
-    <img src="/images/voting/sub-header.png" alt="" class="sub-heading">
-  </div>
-  <div class="vote-count-container">
+  <div class="voting-details">
+    <div class="images-container">
+      <img src="/images/result/carlsberg result text.png" alt="" class="heading-logo">
+    
+      <img src="/images/result/ket-qua-binh-chon-text.png" alt="" class="sub-heading">
+    </div>
 
-    <div class="vote-count" *ngFor="let item of items" >
-      <div class="text" [ngClass]="{'text-special' : item.name == '6' || item.name == '9'}">
-        <img [src]="'/images/voting/voting-name/' + item.name + '.png'" alt=""/>
+    <div class="vote-count-container">
+      <div class="vote-count" *ngFor="let item of items" >
+        <p class="team-name">
+          {{item.teamName}}
+        </p>
+        <div class="progress-bar">
+          <div 
+            class="progress-fill"
+            [style.width.%]="item.percent">
+          </div>
+          
+          <span class="count">{{ item?.count }} <br /> </span>
+        </div>
       </div>
-      <span class="count">{{ item?.count }} <br /> </span>
     </div>
   </div>
 </div>

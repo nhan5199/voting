@@ -1,13 +1,13 @@
 <div class="card" (click)="onVotePerfomance()">
   <div class="vote-button" >
-    
-    <img [src]="'/images/voting/voting-image/' + item.name + '.jpg'" alt="button image" class="button-image">
-
-    <div class="button">
-      <img src="/images/voting/vote-button-background.png" alt="" class="button-background">
-    <img src="/images/voting/vote-text.png" alt="" class="text">
+    <div class="performance-name">
+      {{item.performanceName}}
     </div>
+    <p class="team-name">{{item.teamName}}</p>
   </div>
 
-  <img [src]="'/images/voting/voting-name/' + item.name + '.png'" alt="" class="name">
+  <div class="vote-images">
+    <img [src]="'/images/voting/voting-image/vote-icon.png'" alt="" class="vote-logo">
+    <img [src]="'/images/voting/voting-image/vote-text.png'" alt="" class="vote-text">
+  </div>
 </div>

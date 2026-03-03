@@ -29,45 +29,20 @@ export class HomeComponent implements OnInit {
 
   items = [
     {
-      name: '1',
+      performanceName: 'Tiết mục 1',
+      teamName: 'Tiết mục 1',
       option: 1,
     },
     {
-      name: '2',
+      performanceName: 'Tiết mục 2',
+      teamName: 'Tiết mục 2',
       option: 2,
     },
     {
-      name: '3',
+      performanceName: 'Tiết mục 3',
+      teamName: 'Tiết mục 3',
       option: 3,
-    },
-    {
-      name: '4',
-      option: 4,
-    },
-    {
-      name: '5',
-      option: 5,
-    },
-    {
-      name: '6',
-      option: 6,
-    },
-    {
-      name: '7',
-      option: 7,
-    },
-    {
-      name: '8',
-      option: 8,
-    },
-    {
-      name: '9',
-      option: 9,
-    },
-    {
-      name: '10',
-      option: 10,
-    },
+    }
   ];
 
   constructor(private firebaseService: FirebaseService) {}
@@ -82,6 +57,7 @@ export class HomeComponent implements OnInit {
 
     // Get firebase data
     const data = await firstValueFrom(this.firebaseService.getData('items'));
+    console.log("data: ", data)
 
     // Check if user has already voted
     const existingVote = data.find((item: any) => item.userId === this.userId);
@@ -102,8 +78,9 @@ export class HomeComponent implements OnInit {
     await this.firebaseService.addData({
       userId: this.userId, // unique id for user
       option: option,
-      name: this.votedItem.name,
-      itemId: this.votedItem.name
+      performanceName: this.votedItem.performanceName,
+      teamName: this.votedItem.teamName,
+      itemId: this.votedItem.performanceName
     }, 'items');
 
     this.votedOption = option;

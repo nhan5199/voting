@@ -18,60 +18,28 @@ export class VotingResultComponent implements OnInit, OnDestroy {
   async ngOnInit() {
     this.items = [
     {
-      name: '1',
+      performanceName: 'Tiết mục 1',
+      teamName: 'Tiết mục 1',
       option: 1,
       count: 0
     },
     {
-      name: '2',
+      performanceName: 'Tiết mục 2',
+      teamName: 'Tiết mục 2',
       option: 2,
       count: 0
     },
     {
-      name: '3',
+      performanceName: 'Tiết mục 3',
+      teamName: 'Tiết mục 3',
       option: 3,
-      count: 0
-    },
-    {
-      name: '4',
-      option: 4,
-      count: 0
-    },
-    {
-      name: '5',
-      option: 5,
-      count: 0
-    },
-    {
-      name: '6',
-      option: 6,
-      count: 0
-    },
-    {
-      name: '7',
-      option: 7,
-      count: 0
-    },
-    {
-      name: '8',
-      option: 8,
-      count: 0
-    },
-    {
-      name: '9',
-      option: 9,
-      count: 0
-    },
-    {
-      name: '10',
-      option: 10,
       count: 0
     },
   ];
     this.getData();
     this.intervalId = setInterval(() => {
       this.getData();
-    }, 5000); // 5 seconds
+    }, 100000); // 5 seconds
   }
 
   async getData() {
@@ -80,26 +48,58 @@ export class VotingResultComponent implements OnInit, OnDestroy {
     this.items = this.aggregateVotes(data);
   }
 
+  // aggregateVotes(data: any[]): any[] {
+  //   const countMap = new Map<string, number>();
+
+  //   data.forEach(({ name, detail, option }) => {
+  //     const key = `${name}|${detail}|${option}`;
+  //     countMap.set(key, (countMap.get(key) || 0) + 1);
+  //   });
+
+  //   const updatedItems = this.items.map((item) => {
+  //     const key = `${item.name}|${item.detail}|${item.option}`;
+  //     const count = countMap.get(key) || 0;
+
+  //     return {
+  //       ...item,
+  //       count
+  //     };
+  //   });
+
+  //   // 👇 Get max vote
+  //   const maxVote = Math.max(...updatedItems.map(i => i.count), 1);
+
+  //   // 👇 Add percent field
+  //   return updatedItems.map(item => ({
+  //     ...item,
+  //     percent: (item.count / maxVote) * 100
+  //   }));
+  // }
+
   aggregateVotes(data: any[]): any[] {
-    // Step 1: Count occurrences
     const countMap = new Map<string, number>();
 
+    // Count votes
     data.forEach(({ name, detail, option }) => {
       const key = `${name}|${detail}|${option}`;
       countMap.set(key, (countMap.get(key) || 0) + 1);
     });
 
-    // Step 2: Update counts in original items
-    const updatedItems = this.items.map((item) => {
+    const MAX_VALUE = 800;
+
+    return this.items.map((item) => {
       const key = `${item.name}|${item.detail}|${item.option}`;
+      const count = countMap.get(key) || 0;
+
+      // Prevent overflow above 100%
+      const percent = Math.min((count / MAX_VALUE) * 100, 100);
+
       return {
         ...item,
-        count: countMap.get(key) || 0,
+        count,
+        percent
       };
     });
-
-    // Step 3: Sort by count DESC, then name DESC, then detail DESC
-    return updatedItems;
   }
 
   // clearData() {
