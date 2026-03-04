@@ -1,7 +1,8 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FirebaseService } from '../shared/services/firebase.service';
 import { CommonModule } from '@angular/common';
-import { combineLatest } from 'rxjs';
+import { firstValueFrom } from 'rxjs';
+
 
 @Component({
   selector: 'app-voting-result',
@@ -17,40 +18,45 @@ export class VotingResultComponent implements OnInit, OnDestroy {
   constructor(private firebaseService: FirebaseService) {}
 
   ngOnInit() {
-    const option1$ = this.firebaseService.getVote(1);
-    const option2$ = this.firebaseService.getVote(2);
-    const option3$ = this.firebaseService.getVote(3);
 
-    combineLatest([option1$, option2$, option3$])
-      .subscribe(([o1, o2, o3] : any[]) => {
+    this.loadData(); // first load
 
-        const MAX_VALUE = 600; // adjust if needed
-
-        this.items = [
-          {
-            performanceName: o1.performanceName,
-            teamName: o1.teamName,
-            option: 1,
-            count: o1.votes || 0,
-            percent: Math.min(((o1.votes || 0) / MAX_VALUE) * 100, 100)
-          },
-          {
-            performanceName: o2.performanceName,
-            teamName: o2.teamName,
-            option: 2,
-            count: o2.votes || 0,
-            percent: Math.min(((o2.votes || 0) / MAX_VALUE) * 100, 100)
-          },
-          {
-            performanceName: o3.performanceName,
-            teamName: o3.teamName,
-            option: 3,
-            count: o3.votes || 0,
-            percent: Math.min(((o3.votes || 0) / MAX_VALUE) * 100, 100)
-          }
-        ];
-      });
+  this.intervalId = setInterval(() => {
+    this.loadData();
+  }, 2000);
   }
+
+  async loadData() {
+  const o1 = await firstValueFrom(this.firebaseService.getVote(1)) as any;
+  const o2 = await firstValueFrom(this.firebaseService.getVote(2)) as any;
+  const o3 = await firstValueFrom(this.firebaseService.getVote(3)) as any;
+
+  const MAX_VALUE = 600;
+
+  this.items = [
+    {
+      performanceName: o1.performanceName,
+      teamName: o1.teamName,
+      option: 1,
+      count: o1.votes || 0,
+      percent: Math.min(((o1.votes || 0) / MAX_VALUE) * 100, 100)
+    },
+    {
+      performanceName: o2.performanceName,
+      teamName: o2.teamName,
+      option: 2,
+      count: o2.votes || 0,
+      percent: Math.min(((o2.votes || 0) / MAX_VALUE) * 100, 100)
+    },
+    {
+      performanceName: o3.performanceName,
+      teamName: o3.teamName,
+      option: 3,
+      count: o3.votes || 0,
+      percent: Math.min(((o3.votes || 0) / MAX_VALUE) * 100, 100)
+    }
+  ];
+}
 
   ngOnDestroy(): void {
     clearInterval(this.intervalId);
