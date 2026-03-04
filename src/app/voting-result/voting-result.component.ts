@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FirebaseService } from '../shared/services/firebase.service';
-import { firstValueFrom } from 'rxjs';
 import { CommonModule } from '@angular/common';
+import { combineLatest } from 'rxjs';
 
 @Component({
   selector: 'app-voting-result',
@@ -12,103 +12,51 @@ import { CommonModule } from '@angular/common';
 })
 export class VotingResultComponent implements OnInit, OnDestroy {
   items: any[] = [];
+  intervalId: any;
+
   constructor(private firebaseService: FirebaseService) {}
 
-  intervalId: any;
-  async ngOnInit() {
-    this.items = [
-    {
-      performanceName: 'Tiết mục 1',
-      teamName: 'Tiết mục 1',
-      option: 1,
-      count: 0
-    },
-    {
-      performanceName: 'Tiết mục 2',
-      teamName: 'Tiết mục 2',
-      option: 2,
-      count: 0
-    },
-    {
-      performanceName: 'Tiết mục 3',
-      teamName: 'Tiết mục 3',
-      option: 3,
-      count: 0
-    },
-  ];
-    this.getData();
-    this.intervalId = setInterval(() => {
-      this.getData();
-    }, 2000); // 2 seconds
-  }
+  ngOnInit() {
+    const option1$ = this.firebaseService.getVote(1);
+    const option2$ = this.firebaseService.getVote(2);
+    const option3$ = this.firebaseService.getVote(3);
 
-  async getData() {
-    const data = await firstValueFrom(this.firebaseService.getData('items'));
-    
-    this.items = this.aggregateVotes(data);
-  }
+    combineLatest([option1$, option2$, option3$])
+      .subscribe(([o1, o2, o3] : any[]) => {
 
-  // aggregateVotes(data: any[]): any[] {
-  //   const countMap = new Map<string, number>();
+        const MAX_VALUE = 600; // adjust if needed
 
-  //   data.forEach(({ name, detail, option }) => {
-  //     const key = `${name}|${detail}|${option}`;
-  //     countMap.set(key, (countMap.get(key) || 0) + 1);
-  //   });
-
-  //   const updatedItems = this.items.map((item) => {
-  //     const key = `${item.name}|${item.detail}|${item.option}`;
-  //     const count = countMap.get(key) || 0;
-
-  //     return {
-  //       ...item,
-  //       count
-  //     };
-  //   });
-
-  //   // 👇 Get max vote
-  //   const maxVote = Math.max(...updatedItems.map(i => i.count), 1);
-
-  //   // 👇 Add percent field
-  //   return updatedItems.map(item => ({
-  //     ...item,
-  //     percent: (item.count / maxVote) * 100
-  //   }));
-  // }
-
-  aggregateVotes(data: any[]): any[] {
-    const countMap = new Map<string, number>();
-
-    // Count votes
-    data.forEach(({ name, detail, option }) => {
-      const key = `${name}|${detail}|${option}`;
-      countMap.set(key, (countMap.get(key) || 0) + 1);
-    });
-
-    const MAX_VALUE = 800;
-
-    return this.items.map((item) => {
-      const key = `${item.name}|${item.detail}|${item.option}`;
-      const count = countMap.get(key) || 0;
-
-      // Prevent overflow above 100%
-      const percent = Math.min((count / MAX_VALUE) * 100, 100);
-
-      return {
-        ...item,
-        count,
-        percent
-      };
-    });
-  }
-
-  clearData() {
-    this.firebaseService.clearAllData();
-
-    this.getData();
+        this.items = [
+          {
+            performanceName: o1.performanceName,
+            teamName: o1.teamName,
+            option: 1,
+            count: o1.votes || 0,
+            percent: Math.min(((o1.votes || 0) / MAX_VALUE) * 100, 100)
+          },
+          {
+            performanceName: o2.performanceName,
+            teamName: o2.teamName,
+            option: 2,
+            count: o2.votes || 0,
+            percent: Math.min(((o2.votes || 0) / MAX_VALUE) * 100, 100)
+          },
+          {
+            performanceName: o3.performanceName,
+            teamName: o3.teamName,
+            option: 3,
+            count: o3.votes || 0,
+            percent: Math.min(((o3.votes || 0) / MAX_VALUE) * 100, 100)
+          }
+        ];
+      });
   }
 
   ngOnDestroy(): void {
     clearInterval(this.intervalId);
+  }
+  
+  async clearData() {
+    await this.firebaseService.clearAllData();
   }
 }

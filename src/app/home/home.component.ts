@@ -29,18 +29,18 @@ export class HomeComponent implements OnInit {
 
   items = [
     {
-      performanceName: 'Tiết mục 1',
-      teamName: 'Tiết mục 1',
+      performanceName: 'Rock xuân yêu thương',
+      teamName: 'Ba Chàng Huế',
       option: 1,
     },
     {
-      performanceName: 'Tiết mục 2',
-      teamName: 'Tiết mục 2',
+      performanceName: 'Nhảy tình đắm say',
+      teamName: 'Nghệ An Sales Team',
       option: 2,
     },
     {
-      performanceName: 'Tiết mục 3',
-      teamName: 'Tiết mục 3',
+      performanceName: 'Light the fire',
+      teamName: 'Glow And Grow',
       option: 3,
     }
   ];
@@ -60,31 +60,25 @@ export class HomeComponent implements OnInit {
     console.log("data: ", data)
 
     // Check if user has already voted
-    const existingVote = data.find((item: any) => item.userId === this.userId);
+    const existingVote = await this.firebaseService.hasUserVoted(this.userId);
+
     if (existingVote) {
-      this.votedItem = this.items.find((x) => x.option == +existingVote.option);
       this.votedOption = existingVote.option;
+      this.votedItem = this.items.find(x => x.option == existingVote.option);
       this.isVoted = true;
     }
   }
 
-  async onVote(option: number) {
-    if (this.isVoted) return;
+   async onVote(option: number) {
+    if (this.isVoted || !this.userId) return;
 
-    this.votedItem = this.items.find((x) => x.option == option);
-    if (!this.votedItem) return;
-
-    // Save vote to Firebase
-    await this.firebaseService.addData({
-      userId: this.userId, // unique id for user
-      option: option,
-      performanceName: this.votedItem.performanceName,
-      teamName: this.votedItem.teamName,
-      itemId: this.votedItem.performanceName
-    }, 'items');
-
-    this.votedOption = option;
-    this.isVoted = true;
+    try {
+      await this.firebaseService.vote(this.userId, option);
+      this.votedOption = option;
+      this.isVoted = true;
+    } catch (error) {
+      this.isVoted = true;
+    }
   }
 
   private generateId(): string {
