@@ -30,7 +30,7 @@ export class HomeComponent implements OnInit {
   items = [
     {
       performanceName: 'Rock xuân yêu thương',
-      teamName: 'Ba Chàng Huế',
+      teamName: '10T',
       option: 1,
     },
     {
