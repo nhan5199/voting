@@ -28,21 +28,22 @@ export class HomeComponent implements OnInit {
   votedOption: number = -1;
 
   items = [
-    {
-      performanceName: 'Nối vòng tay lớn remix',
-      teamName: 'Chị em',
-      option: 1,
-    },
+    
     {
       performanceName: 'Khúc nhạc vui',
       teamName: 'Quảng Ninh Sales Team',
-      option: 2,
+      option: 1,
     },
     {
       performanceName: 'Múa - Cô đôi thượng ngàn',
       teamName: 'Hà Nội Region',
+      option: 2,
+    },
+    {
+      performanceName: 'Nối vòng tay lớn remix',
+      teamName: 'Chị em',
       option: 3,
-    }
+    },
   ];
 
   constructor(private firebaseService: FirebaseService) {}

@@ -13,14 +13,14 @@
 }
 
 .voting-details{
-  position:absolute;
-  top:42%;
-  transform: translateY(-50%);
-  right:10%;
-
-  display:flex;
-  flex-direction:column;
-  gap: 20px;
+      position: absolute;
+    top: 51%;
+    transform: translate(-50%, -50%);
+    left: 60%;
+    display: flex
+;
+    flex-direction: column;
+    gap: 20px;
 
   .heading-logo, .sub-heading{
     height:25px;
