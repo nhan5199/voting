@@ -29,18 +29,18 @@ export class HomeComponent implements OnInit {
 
   items = [
     {
-      performanceName: 'Rock xuân yêu thương',
-      teamName: '10T',
+      performanceName: 'Nối vòng tay lớn remix',
+      teamName: 'Chị em',
       option: 1,
     },
     {
-      performanceName: 'Nhảy tình đắm say',
-      teamName: 'Nghệ An Sales Team',
+      performanceName: 'Khúc nhạc vui',
+      teamName: 'Quảng Ninh Sales Team',
       option: 2,
     },
     {
-      performanceName: 'Light the fire',
-      teamName: 'Glow And Grow',
+      performanceName: 'Múa - Cô đôi thượng ngàn',
+      teamName: 'Hà Nội Region',
       option: 3,
     }
   ];
