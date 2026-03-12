@@ -30,13 +30,13 @@ export class HomeComponent implements OnInit {
   items = [
     
     {
-      performanceName: 'Vạn sự như ý',
-      teamName: 'ISC Crew',
+      performanceName: 'Múa cổ trang “Yến Vô Hiết”',
+      teamName: 'Nốt chu sa',
       option: 1,
     },
     {
-      performanceName: 'Múa cổ trang “Yến Vô Hiết”',
-      teamName: 'Nốt chu sa',
+      performanceName: 'Vạn sự như ý',
+      teamName: 'ISC Crew',
       option: 2,
     },
     {
