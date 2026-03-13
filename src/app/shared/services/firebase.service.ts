@@ -38,6 +38,7 @@ async clearAllData(): Promise<void> {
   await updateDoc(doc(this.firestore, 'items/option1'), { votes: 0 });
   await updateDoc(doc(this.firestore, 'items/option2'), { votes: 0 });
   await updateDoc(doc(this.firestore, 'items/option3'), { votes: 0 });
+  await updateDoc(doc(this.firestore, 'items/option4'), { votes: 0 });
 
   // 2️⃣ Delete all user votes
   const votesRef = collection(this.firestore, 'votes');
