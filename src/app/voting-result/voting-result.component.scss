@@ -1,5 +1,5 @@
 .container {
-  background-image: url("/images/result/result-background (2).png");
+  background-image: url("/images/result/result-background.jpg");
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
@@ -36,7 +36,7 @@
   .vote-count-container {
     display: flex;
     flex-direction: column;
-    gap:20px;
+    gap:30px;
     min-width:650px;
 
     .vote-count{
@@ -46,7 +46,7 @@
       height:60px;
 
       .team-name{
-        font-size: 14px;
+        font-size: 16px;
         height:100%;
         display:flex; 
         align-items: center;
@@ -54,7 +54,7 @@
         background-color:white;
         color: #304641;
         text-transform: uppercase;
-        min-width:220px;
+        min-width:250px;
         font-weight:700;
         font-family: "SVN-Effra", sans-serif;
         color: #153E35;
@@ -162,10 +162,10 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  width:70%;
+  width:75%;
   margin:0 auto;
   position:absolute;
-  top:20%;
+  top:15%;
   left:50%;
   transform: translateX(-50%);
 
@@ -174,6 +174,6 @@
   }
 
   .right-logo{
-    height:65px;
+    height:75px;
   }
 }

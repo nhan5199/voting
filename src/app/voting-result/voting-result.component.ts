@@ -23,7 +23,7 @@ export class VotingResultComponent implements OnInit, OnDestroy {
 
   this.intervalId = setInterval(() => {
     this.loadData();
-  }, 1000000);
+  }, 2000);
   }
 
   async loadData() {
@@ -32,7 +32,7 @@ export class VotingResultComponent implements OnInit, OnDestroy {
   const o3 = await firstValueFrom(this.firebaseService.getVote(3)) as any;
   const o4 = await firstValueFrom(this.firebaseService.getVote(4)) as any;
 
-  const MAX_VALUE = 500;
+  const MAX_VALUE = 100;
 
   this.items = [
     {
