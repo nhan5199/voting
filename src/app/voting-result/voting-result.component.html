@@ -2,18 +2,16 @@
   <p class="clear-data" (click)="clearData()"><span class="material-symbols-outlined">
 refresh
 </span></p>
+ <div class="images-container">
+    <img src="/images/voting/hongleong-logo.png" alt="" class="left-logo">
+    <img src="/images/result/hongleong-tieu-de-text.png" alt="" class="right-logo">
+  </div>
 
   <div class="voting-details">
-    <div class="images-container">
-      <img src="/images/result/carlsberg result text.png" alt="" class="heading-logo">
-    
-      <img src="/images/result/ket-qua-binh-chon-text.png" alt="" class="sub-heading">
-    </div>
-
-    <div class="vote-count-container">
+      <div class="vote-count-container">
       <div class="vote-count" *ngFor="let item of items" >
         <p class="team-name">
-          {{item.teamName}}
+          {{item.performanceName}}
         </p>
         <div class="progress-bar">
           <div 

@@ -23,15 +23,16 @@ export class VotingResultComponent implements OnInit, OnDestroy {
 
   this.intervalId = setInterval(() => {
     this.loadData();
-  }, 2000);
+  }, 1000000);
   }
 
   async loadData() {
   const o1 = await firstValueFrom(this.firebaseService.getVote(1)) as any;
   const o2 = await firstValueFrom(this.firebaseService.getVote(2)) as any;
   const o3 = await firstValueFrom(this.firebaseService.getVote(3)) as any;
+  const o4 = await firstValueFrom(this.firebaseService.getVote(4)) as any;
 
-  const MAX_VALUE = 600;
+  const MAX_VALUE = 500;
 
   this.items = [
     {
@@ -54,6 +55,13 @@ export class VotingResultComponent implements OnInit, OnDestroy {
       option: 3,
       count: o3.votes || 0,
       percent: Math.min(((o3.votes || 0) / MAX_VALUE) * 100, 100)
+    },
+    {
+      performanceName: o4.performanceName,
+      teamName: o4.teamName,
+      option: 4,
+      count: o4.votes || 0,
+      percent: Math.min(((o4.votes || 0) / MAX_VALUE) * 100, 100)
     }
   ];
 }
